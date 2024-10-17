@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden; /* Убираем прокрутку */
+    color: white;
+}
+
+/* Общий фон */
+.background {
+    background: url('BG.jpg') no-repeat center center/cover; /* Используйте свой фон */
+    height: 100vh; /* Высота окна */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Контейнер для содержимого с полупрозрачным фоном */
+.content-container {
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    border-radius: 80px; /* Скругленные углы */
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 20px; /* Отступ между секциями */
+    position: relative; /* Позволяет использовать z-index для дочерних элементов */
+    z-index: 0;
+}
+
+/* Обводка для фото */
+.profile-pic-container {
+    border: 5px solid #858685; /* Обводка для фото */
+    border-radius: 50%;
+    overflow: hidden; /* Скрыть переполнение */
+    width: 200px;
+    height: 200px;
+    animation: slideDown 1s ease-in-out;
+    margin: 0 auto; /* Центрирование изображения */
+    transition: transform 0.3s ease; /* Плавный переход для анимации */
+    position: relative; /* Устанавливаем позицию */
+    z-index: 1; /* Устанавливаем z-index для фото */
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+/* Анимация увеличения при наведении */
+.profile-pic-container:hover {
+    transform: scale(1.2); /* Увеличиваем размер */
+}
+
+/* Другие анимации */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Основной контент */
+.content {
+    position: relative;
+    animation: fadeIn 1s ease;
+}
+
+/* Анимация для появления контента */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.name {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+    animation: fadeInLeft 1s ease;
+    position: relative; /* Устанавливаем позицию */
+    z-index: 0; /* Устанавливаем z-index ниже, чем у фото */
+}
+
+.profession {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    animation: fadeInRight 1s ease;
+    position: relative; /* Устанавливаем позицию */
+    z-index: 0; /* Устанавливаем z-index ниже, чем у фото */
+}
+
+/* Стили для секций */
+section {
+    background: rgba(145, 145, 145, 0.1); /* Полупрозрачный фон для секций */
+    border: 1px solid rgba(76, 76, 76, 0.3); /* Легкая рамка */
+    border-radius: 12px; /* Скругленные углы */
+    padding: 15px; /* Отступы внутри блока */
+    margin: 15px 0; /* Отступы между блоками */
+    animation: fadeInUp 1s ease; /* Анимация появления */
+}
+
+/* Заголовки секций */
+h3 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #b3b3b3; /* Цвет заголовков секций */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Тень для заголовков */
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+ul li {
+    font-size: 1.2em;
+    margin: 0.3em 0;
+}
+
+/* Стили для ссылок */
+.contact-link {
+    color: #ffffff; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+.contact-link:hover {
+    color: #858685; /* Цвет при наведении */
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Добавляем анимацию для каждой секции при появлении на экране */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s forwards; /* Анимация */
+}
+
+section:nth-child(1) {
+    animation-delay: 0.5s; /* Задержка для первой секции */
+}
+
+section:nth-child(2) {
+    animation-delay: 1s; /* Задержка для второй секции */
+}
+
+.program {
+    font-size: 1.5em; /* Размер шрифта для программы */
+    margin-bottom: 1em; /* Отступ снизу */
+    color: #ffffff; /* Цвет текста */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Тень для текста */
+    animation: fadeInUp 1s ease; /* Анимация появления */
+}
+h3 i {
+    margin-right: 10px; /* Отступ справа от иконки */
+    color: #b36e2b; /* Цвет иконки */
+}
+
+/* Иконки в списках */
+ul li i {
+    margin-right: 10px; /* Отступ справа от иконки */
+    color: #782727; /* Цвет иконки */
+}
